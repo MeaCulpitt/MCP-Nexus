@@ -130,7 +130,7 @@ Build MCP servers → Integrate → Distribute to AI agents
 
 ## Links
 
-- [Full Proposal](./mcp-nexus-proposal.md)
+- [Full Proposal]((https://github.com/MeaCulpitt/MCP-Nexus/tree/main/docs))
 - [Bittensor Docs](https://docs.learnbittensor.org)
 - [Hackquest Ideathon](https://www.hackquest.io/hackathons/Bittensor-Subnet-Ideathon)
 
