@@ -16,6 +16,8 @@ This subnet creates the missing infrastructure for the agentic AI era.
 
 ---
 
+# Incentive & Mechanism Design
+
 ## Emission and Reward Logic
 
 ### Emission Flow
@@ -108,6 +110,32 @@ Where `w_i` (weight) = normalized total score from validators.
 
 ---
 
+## How This Design Qualifies as "Proof of Intelligence" or "Proof of Effort"
+
+### Proof of Intelligence
+
+1. **Intelligent Tool Selection**: AI agents must intelligently query the registry and select the best tool based on capability matching and quality scores. This requires semantic understanding of what tools can do.
+
+2. **Adaptive Testing**: Validators generate test cases that probe actual capability — not just mechanical responses. They must understand what "good" tool responses look like across different tool types.
+
+3. **Quality Assessment**: Validators evaluate security, performance, correctness — requiring judgment beyond simple pass/fail checks.
+
+4. **Capability Matching**: Matching query intent to tool capabilities requires understanding the semantics of both user requests and tool descriptions.
+
+### Proof of Effort
+
+1. **Active Testing**: Validators must actively test miners every epoch (~20 minutes) — sending requests, measuring responses, computing scores. No free rides.
+
+2. **Server Operation**: Miners must run actual MCP servers with real capabilities — maintaining uptime, handling requests, keeping software current.
+
+3. **Ongoing Verification**: Continuous scoring across epochs ensures miners maintain quality over time, not just at launch.
+
+4. **Stake at Risk**: Both miners (registration cost) and validators (staked TAO) have economic skin in the game.
+
+This is not a simple lookup table — it requires genuine intelligence to evaluate quality and genuine effort to test continuously.
+
+---
+
 ## High-Level Algorithm
 
 ### Task Assignment
@@ -165,9 +193,7 @@ EVERY EPOCH (100 blocks):
   test prompt   0-1 score       w_i = score      emission_i
 ```
 
----
-
-## Performance Dimensions & Scoring Formula
+### Performance Dimensions
 
 | Dimension | Metric | Weight |
 |-----------|--------|--------|
@@ -193,9 +219,7 @@ total_score = 0.30 × availability
             + 0.10 × metadata
 ```
 
----
-
-## Network Parameters
+### Network Parameters
 
 | Parameter | Value |
 |-----------|-------|
