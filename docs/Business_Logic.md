@@ -1,22 +1,34 @@
-## MCP Nexus — Business Logic & Market Rationale
+# Business Logic & Market Rationale
 
-### Problem Statement
+## The Problem the Subnet Aims to Solve and Why It Matters
 
-#### The Problem
+### The Problem
 
-AI assistants (Claude, GPT, Gemini, open-source models) need to connect to external tools — but:
+AI assistants need to connect to external tools — but:
 
 | Issue | Impact |
 |-------|--------|
 | **Discovery** | No standard way to find available tools |
-| **Quality** | No transparent quality signal |
+| **Quality** | No transparent quality signal for new/niche tools |
 | **Centralization** | Each AI company builds its own marketplace |
-| **Lock-in** | Users can't switch AI assistants without losing tools |
 | **Reliability** | No verification that tools work as advertised |
+| **Lock-in** | Developers want distribution beyond one AI platform |
 
-#### Why It Matters Now
+### Why Verification Matters
 
-The article highlights: **"MCP is the new App Store"** and **"Ads inside LLMs are the next trillion-dollar channel."**
+The value is for the **long tail of MCP tools**:
+
+| Tool Type | Why Verification Matters |
+|-----------|------------------------|
+| **Niche/new tools** | No existing trust, need track record |
+| **Open-source implementations** | Quality varies significantly |
+| **Enterprise internal tools** | No public ratings available |
+| **Multi-AI users** | Use Claude + GPT + open-source — want one registry that works across all |
+| **Web3/decentralization advocates** | Don't want AI dependent on one company |
+
+### Why It Matters Now
+
+The X article highlights: **"MCP is the new App Store"** and **"Ads inside LLMs are the next trillion-dollar channel."**
 
 This implies:
 1. Every AI will need tool connections (MCP)
@@ -26,20 +38,19 @@ This implies:
 
 ---
 
-### Competing Solutions
+## Competing Solutions
 
-#### Within Bittensor Ecosystem
+### Within Bittensor Ecosystem
 
 | Subnet | Competition? |
 |--------|---------------|
 | **Subnet 8 (TensorTrust)** | Reputation scoring — but for AI outputs, not tools |
 | **Subnet 14 (Knowledge)** | Data retrieval — different use case |
-| **Chutes.ai (SN64)** | GPU compute — infrastructure, not tool registry |
-| **Other subnets** | None currently focused on MCP |
+| **Novel subnets** | None currently focused on MCP |
 
-**Conclusion**: MCP Nexus is first-mover in MCP tool registry space.
+**Conclusion**: MCP Nexus is first-mover in tool registry space.
 
-#### Outside Bittensor
+### Outside Bittensor
 
 | Solution | Weakness vs MCP Nexus |
 |----------|----------------------|
@@ -47,13 +58,12 @@ This implies:
 | **OpenAI Plugins** | Closed ecosystem, GPT-only |
 | **LangChain Plugins** | No verification layer |
 | **AWS/GCP marketplaces** | Cloud-centric, not AI-native |
-| **ClawDir / Agent directories** | Static listings, no real-time verification |
 
 **Conclusion**: MCP Nexus offers decentralization + verification + multi-AI compatibility.
 
 ---
 
-### Why Bittensor?
+## Why This Use Case Is Well-Suited to a Bittensor Subnet
 
 | Bittensor Feature | MCP Nexus Fit |
 |-------------------|---------------|
@@ -64,32 +74,45 @@ This implies:
 | **Cross-AI** | MCP is model-agnostic |
 | **Existing infrastructure** | Don't build from scratch |
 
+### Honest Positioning
+
+MCP Nexus is not competing with Google's trusted products. The value is for:
+- New servers appearing daily with no track record
+- Open-source implementations with variable quality
+- Enterprise tools with no public ratings
+- Developer tools wanting cross-platform distribution
+
+### The Long-Term Bet
+
+| Centralized | Decentralized |
+|-------------|---------------|
+| One company controls everything | No single point of control |
+| Changes terms whenever they want | Protocol stays open |
+| Locks you in | You can leave |
+
+**Why it could matter more over time:**
+1. AI agents negotiating on your behalf need neutral verification
+2. Tool quality becomes critical as AI automates more
+3. If AI recommends tools, who controls that? Neutral registry wins
+4. Historical pattern: decentralized alternatives become standards
+
 ---
 
-### Path to Adoption
+## Path to Long-Term Adoption and Sustainable Business
 
-#### Phase 1: Infrastructure (Months 1-3)
-- Launch subnet on testnet
-- Register 20-50 MCP servers
-- Attract 10-20 validators
+### Adoption Phases
 
-#### Phase 2: Ecosystem (Months 4-6)
-- Integrate with Claude, GPT agents
-- Launch developer tooling
-- Add premium features (analytics, monitoring)
+| Phase | Timeline | Milestone |
+|-------|----------|-----------|
+| **Phase 1: Infrastructure** | Months 1-3 | Testnet launch, 20-50 servers, 10-20 validators |
+| **Phase 2: Ecosystem** | Months 4-6 | AI agent integrations, developer tooling |
+| **Phase 3: Scale** | Months 7-12 | 1000+ servers, major AI lab adoption |
 
-#### Phase 3: Scale (Months 7-12)
-- 1000+ registered servers
-- Major AI labs adopt MCP Nexus as discovery layer
-- Launch mobile/web UI for humans
-
----
-
-### Sustainability
+### Sustainable Business Model
 
 | Revenue Stream | Description |
 |----------------|-------------|
-| **Protocol fees** | Small % of emission flow |
+| **Protocol fees** | 1-2% of emission flow |
 | **Premium registry** | Verified/promoted listings |
 | **Analytics** | Usage stats for server operators |
 | **Enterprise** | Private registry + SLA |
