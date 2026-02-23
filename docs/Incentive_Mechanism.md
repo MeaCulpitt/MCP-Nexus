@@ -1,10 +1,10 @@
-## MCP Nexus — Incentive & Mechanism Design
+# MCP Nexus — Incentive & Mechanism Design
 
-### Executive Summary
+## Executive Summary
 
 **MCP Nexus** is a decentralized registry and verification layer for MCP (Model Context Protocol) servers — the emerging standard for connecting AI assistants to external tools.
 
-MCP is the new App Store, but unlike the iPhone App Store, this "App Store" has no centralized curator. AI assistants need a way to discover, verify, and choose the best tools autonomously — without vendor lock-in.
+As the article astutely observed: **"MCP is the new App Store."** But unlike the iPhone App Store, this "App Store" has no centralized curator. AI assistants need a way to discover, verify, and choose the best tools autonomously — without vendor lock-in.
 
 MCP Nexus provides:
 - **Discovery**: Find MCP servers by capability, category, or task
@@ -16,7 +16,9 @@ This subnet creates the missing infrastructure for the agentic AI era.
 
 ---
 
-### Emission and Reward Logic
+## Emission and Reward Logic
+
+### Emission Flow
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
@@ -26,7 +28,7 @@ This subnet creates the missing infrastructure for the agentic AI era.
                               │
                               ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│                    MCP NEXUS SUBNET                             │
+│                    MCP NEXUS SUBNET                              │
 │                    Emission: X TAO/epoch                         │
 │                                                                  │
 │  ┌──────────────┐     ┌──────────────┐     ┌──────────────┐  │
@@ -39,10 +41,13 @@ This subnet creates the missing infrastructure for the agentic AI era.
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-**Reward Formula:**
+### Reward Formula
+
+Each epoch, validators set weight `w_i` for each miner `i`. Miner emissions:
 
 ```
 miner_emission_i = (w_i / Σw_j) × subnet_emission × 0.96
+
 validator_reward = subnet_emission × 0.04
 ```
 
@@ -50,7 +55,9 @@ Where `w_i` (weight) = normalized total score from validators.
 
 ---
 
-### Incentive Alignment for Miners
+## Incentive Alignment for Miners and Validators
+
+### Miner Incentives
 
 | Incentive | Description |
 |-----------|-------------|
@@ -61,9 +68,7 @@ Where `w_i` (weight) = normalized total score from validators.
 
 **Alignment**: Miners earn more when they provide high-quality, available, correct services. Low-quality servers lose emissions and eventually get deregistered.
 
----
-
-### Incentive Alignment for Validators
+### Validator Incentives
 
 | Incentive | Description |
 |-----------|-------------|
@@ -75,9 +80,9 @@ Where `w_i` (weight) = normalized total score from validators.
 
 ---
 
-### Mechanisms to Discourage Low-Quality or Adversarial Behavior
+## Mechanisms to Discourage Low-Quality or Adversarial Behavior
 
-#### For Miners
+### For Miners
 
 | Threat | Mitigation |
 |--------|------------|
@@ -86,7 +91,7 @@ Where `w_i` (weight) = normalized total score from validators.
 | **Sybil attacks** | Registration requires skin in the game (TAO burn) |
 | **Good enough scores** | Minimum threshold to earn emissions; bottom 10% gets 0 |
 
-#### For Validators
+### For Validators
 
 | Threat | Mitigation |
 |--------|------------|
@@ -95,14 +100,17 @@ Where `w_i` (weight) = normalized total score from validators.
 | **Slashing** | Misbehavior leads to stake slashing (future upgrade) |
 | **Free-riding** | Must actively test to set meaningful weights |
 
-#### Immune Period Protection
+### Immune Period Protection
+
 - New miners get 4096 blocks (~14 hours) immunity
 - Prevents immediate deregistration attacks
 - Gives time to prove capability
 
 ---
 
-### High-Level Algorithm
+## High-Level Algorithm
+
+### Task Assignment
 
 ```
 EVERY EPOCH (100 blocks):
@@ -125,14 +133,15 @@ EVERY EPOCH (100 blocks):
 4. VALIDATOR EVALUATES RESPONSE
    - Check: was response valid JSON?
    - Check: does response match expected output?
-   - Record: availability, correctness, latency
+   - Record: availability (up/down), correctness (right/wrong), latency (ms)
 
 5. VALIDATOR COMPUTES SCORES
-   score_i = 0.30 × availability_i
-          + 0.30 × correctness_i
-          + 0.15 × latency_score_i
-          + 0.15 × security_i
-          + 0.10 × metadata_score_i
+   For each miner i:
+     score_i = 0.30 × availability_i
+            + 0.30 × correctness_i
+            + 0.15 × latency_score_i
+            + 0.15 × security_i
+            + 0.10 × metadata_score_i
 
 6. VALIDATOR SETS WEIGHTS
    - Normalize scores to weights
@@ -143,9 +152,22 @@ EVERY EPOCH (100 blocks):
    - Transfer TAO to miner hotkeys
 ```
 
+### Validation, Scoring, and Reward Flow
+
+```
+┌─────────┐     ┌──────────┐     ┌─────────┐     ┌──────────┐
+│ Miner   │────▶│ Validator│────▶│ Chain   │────▶│ Emission │
+│ Serves  │     │ Tests    │     │ Weights │     │ Paid     │
+└─────────┘     └──────────┘     └─────────┘     └──────────┘
+    │               │                │               │
+    │               │                │               │
+  Input:         Score:          Weight:          TAO:
+  test prompt   0-1 score       w_i = score      emission_i
+```
+
 ---
 
-### Performance Dimensions & Scoring Formula
+## Performance Dimensions & Scoring Formula
 
 | Dimension | Metric | Weight |
 |-----------|--------|--------|
@@ -155,10 +177,12 @@ EVERY EPOCH (100 blocks):
 | **Security** | HTTPS + basic security checks | 15% |
 | **Metadata** | Description completeness | 10% |
 
+### Scoring Formula
+
 ```
 availability = (successful_requests / total_requests)
 correctness = (valid_responses / successful_requests)
-latency_score = max(0, 1 - (avg_latency_ms / 10000))
+latency_score = max(0, 1 - (avg_latency_ms / 10000))  // 10s = 0, 0ms = 1
 security = 1.0 if https AND no_vulns else 0.5
 metadata = completeness(description) / 100
 
@@ -171,7 +195,7 @@ total_score = 0.30 × availability
 
 ---
 
-### Network Parameters
+## Network Parameters
 
 | Parameter | Value |
 |-----------|-------|
