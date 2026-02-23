@@ -18,10 +18,22 @@ But unlike the App Store, there's no quality verification. MCP Nexus fixes that.
 
 | Problem | Solution |
 |---------|----------|
-| No way to find MCP tools | Decentralized discovery |
-| No quality signal | Validators test & score |
-| Centralized marketplaces | No vendor lock-in |
-| Unverified tools | On-chain reputation |
+| New/niche MCP tools have no track record | Decentralized verification |
+| Open-source implementations vary in quality | Real-time scoring |
+| Multi-AI users need cross-platform tools | One registry works with all |
+| Developer tools want distribution beyond one platform | No vendor lock-in |
+
+### Honest Positioning
+
+**This is not a Google killer.** Major platforms like Gmail already have trust.
+
+The value is for the **long tail of MCP tools** — new servers, open-source implementations, enterprise tools, and developers who want their tools work across multiple AI platforms.
+
+It's a niche product for:
+- Decentralization advocates
+- Multi-AI power users  
+- Developers wanting cross-platform distribution
+- Web3 AI projects already on Bittensor
 
 ---
 
@@ -84,7 +96,6 @@ But unlike the App Store, there's no quality verification. MCP Nexus fixes that.
 None currently focus on MCP tool verification.
 
 ### Outside Bittensor
-
 | Solution | Weakness |
 |----------|----------|
 | Anthropic MCP Directory | Centralized |
@@ -128,14 +139,6 @@ Build MCP servers → Integrate → Distribute to AI agents
 
 ---
 
-## Links
-
-- [Full Proposal](https://github.com/MeaCulpitt/MCP-Nexus/tree/main/docs)
-- [Bittensor Docs](https://docs.learnbittensor.org)
-- [Hackquest Ideathon](https://www.hackquest.io/hackathons/Bittensor-Subnet-Ideathon)
-
----
-
 ## License
 
 MIT
@@ -143,3 +146,5 @@ MIT
 ---
 
 *Built for the agentic AI era.*
+
+---
