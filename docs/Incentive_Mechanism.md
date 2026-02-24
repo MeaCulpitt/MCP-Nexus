@@ -4,7 +4,7 @@
 
 **MCP Nexus** is a decentralized registry and verification layer for MCP (Model Context Protocol) servers — the emerging standard for connecting AI assistants to external tools.
 
-**MCP is the new App Store** but unlike the iPhone App Store, this "App Store" has no centralized curator. AI assistants need a way to discover, verify, and choose the best tools autonomously — without vendor lock-in.
+It's been said that **"MCP is the new App Store"** but unlike the iPhone App Store, this "App Store" has no centralized curator. AI assistants need a way to discover, verify, and choose the best tools autonomously — without vendor lock-in.
 
 MCP Nexus provides:
 - **Discovery**: Find MCP servers by capability, category, or task
