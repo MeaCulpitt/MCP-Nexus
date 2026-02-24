@@ -16,8 +16,6 @@ This subnet creates the missing infrastructure for the agentic AI era.
 
 ---
 
-# Incentive & Mechanism Design
-
 ## Emission and Reward Logic
 
 ### Emission Flow
@@ -229,3 +227,38 @@ total_score = 0.30 × availability
 | Epoch Duration | 100 blocks (~20 minutes) |
 | Validator Commission | 4% |
 | Registration Cost | ~10 TAO |
+
+---
+
+## Potential Future Upgrades
+
+As MCP evolves and the protocol matures, future subnet upgrades may introduce advanced capabilities that MCP server operators can implement for enhanced functionality. These potential upgrades would be evaluated and integrated through the subnet's governance process.
+
+### Advanced Server Capabilities
+
+| # | Feature | Description |
+|---|---------|-------------|
+| 1 | **Tiered Schemas** | Offer three levels of tool metadata: Level 0 (name + 1-line), Level 1 (summary), Level 2 (full JSON Schema). Reduces token usage for agents dramatically. |
+| 2 | **Dynamic Tool Lists** | Return different tools based on authenticated user/session. Hide admin tools for normal users, send notifications when capabilities change. |
+| 3 | **Tasks Primitive** | Long-running operations return task handles immediately with progress tracking. Agents can fire-and-forget parallel tasks instead of blocking. |
+| 4 | **Code-Agent Patterns** | Expose tools as filesystem hierarchy (e.g., `/servers/github/repos/list.ts`). Include README.md for complex tools. Return minimal, filterable data by default. |
+| 5 | **Semantic Tool Search** | Expose `tools/semantic_search` that accepts natural-language queries and returns ranked tool results. Uses embeddings for intelligent matching. |
+| 6 | **Batching & Streaming** | Support parallel tool execution in one call. Return paginated results with continuation tokens. Add batch method for array of tool calls. |
+| 7 | **Per-Tool Authorization** | Use OAuth 2.1 scopes with fine-grained access control. Negotiate capabilities during initialization. Return helpful "missing_scope" errors. |
+| 8 | **Resource Subscriptions** | Offer `resources/subscribe` for files, DB tables, channels. Push change notifications via SSE or webhooks. Turns passive tools into reactive ones. |
+| 9 | **Server-Side Sampling** | Implement "Sampling with Tools" capability. Run short agentic loops internally (e.g., "search GitHub → post to Slack") and return only the final result. |
+| 10 | **Observability Endpoints** | Expose `meta/stats` (token usage, latency, error rates) and `meta/trace` (request tracing). Human-readable error messages with suggested fixes. |
+
+### Implementation Roadmap (Future)
+
+| Phase | Features |
+|-------|----------|
+| **Phase 1** | Tiered Schemas + Semantic Search |
+| **Phase 2** | Tasks Primitive + Dynamic Tool Lists |
+| **Phase 3** | Code-Agent Patterns + Batching |
+| **Phase 4** | Per-Tool Authorization + Resource Subscriptions |
+| **Phase 5** | Server-Side Sampling + Observability |
+
+These future upgrades would align with the broader MCP ecosystem evolution and provide differentiation for servers that implement advanced capabilities.
+
+---
